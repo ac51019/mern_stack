@@ -54,9 +54,14 @@ function changeColor4() {
 
 // input section
 
- const navbar = document.getElementById('navbar');
-        const username_input = document.getElementById('username_input');
+const navbar = document.getElementById('navbar');
+const username_input = document.getElementById('username_input');
+const greetbtn = document.getElementById('greetBtn')
 
-        username_input.addEventListener("input", function(e) {
-            navbar.innerText = "Hello , "+ e.target.value;
-        });
+
+greetbtn.addEventListener("click",function(e){
+    navbar.innerText = "Hello , " + username_input.value;
+     e.preventDefault();
+});
+
+

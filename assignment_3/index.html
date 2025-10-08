@@ -22,22 +22,28 @@
     <section>
       <div class="container">
         <div class="color_box">
-          <div class="box" id="box-1"  onclick="changeColor1()">Red</div>
-          <div class="box" id="box-2"  onclick="changeColor2()">Blue</div>
-          <div class="box" id="box-3"  onclick="changeColor3()">Green</div>
-          <div class="box" id="box-4"  onclick="changeColor4()">Yellow</div>
+          <div class="box" id="box-1" onclick="changeColor1()">Red</div>
+          <div class="box" id="box-2" onclick="changeColor2()">Blue</div>
+          <div class="box" id="box-3" onclick="changeColor3()">Green</div>
+          <div class="box" id="box-4" onclick="changeColor4()">Yellow</div>
         </div>
       </div>
     </section>
 
-    <!-- input section  -->   
+    <!-- input section  -->
+    <section>
       <div class="container">
-        <form action="" id="username_input">
-           <input type="text" id="username_input" placeholder="Enter your name">
-          <button type="submit" class="btn">Greet</button>
+        <form action="" id="greetForm">
+          <input
+            type="text"
+            id="username_input"
+            placeholder="Enter your name"
+          />
+          <button type="submit" class="btn" id="greetBtn">Greet</button>
         </form>
       </div>
     </section>
+
 
     <!-- script file link  -->
     <script src="script.js"></script>
