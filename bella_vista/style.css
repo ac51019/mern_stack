@@ -63,3 +63,17 @@ header{
     background-color: burlywood;
     width: 2rem;
 }
+
+/* hero section  */
+
+.hero{
+    height: 100vh;
+    background-color: linear-gradient(rgba(0,0,0,0,0,5),rgba(0,0,0,0,0,5 )),url
+    ()center/cover;
+    margin:80px;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
