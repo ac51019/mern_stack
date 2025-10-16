@@ -62,6 +62,6 @@ const greetbtn = document.getElementById('greetBtn')
 greetbtn.addEventListener("click",function(e){
     navbar.innerText = "Hello , " + username_input.value;
      e.preventDefault();
+    //  This prevents form reset or page reload
 });
-
 
