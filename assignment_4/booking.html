@@ -1,0 +1,372 @@
+/* Some issue use afte complte project */ /* HTML Section */
+
+<section>
+  <div class="booking-section">
+    <!-- <div class="section-header">
+          <h1>🧺 Booking Services</h1>
+          <p>Select your desired laundry services and book now</p>
+        </div> -->
+
+    <div class="booking-container">
+      <!-- Left Section - Services -->
+      <div class="left-section">
+        <h2 class="section-title">Our Services</h2>
+        <p>Click On The Add To Cart Button To Add The services To Your Cart</p>
+
+        <div class="services-list" id="servicesList">
+          <!-- Services will be dynamically generated -->
+        </div>
+
+        <div class="cart-info">
+          💡 Add items to the cart to proceed with booking
+        </div>
+      </div>
+
+      <!-- Right Section - Cart & Booking Form -->
+      <div class="right-section">
+        <h2 class="section-title">Added Items</h2>
+
+        <!-- Cart Section -->
+        <div class="cart-section">
+          <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="9" cy="21" r="1" stroke-width="2" />
+                <circle cx="20" cy="21" r="1" stroke-width="2" />
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p>
+                No items added yet.<br />Add services from the left to get
+                started!
+              </p>
+            </div>
+          </div>
+
+          <div class="total-section">
+            <div class="total-row">
+              <span class="total-label">Total Amount:</span>
+              <span class="total-amount">₹<span id="totalAmount">0</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form">
+          <!-- <h3 style="margin-bottom: 1rem; color: #333">Book Now</h3> -->
+          <!-- <h3>Book Now</h3> -->
+
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+
+          <button
+            class="book-now-btn"
+            onclick="bookNow()"
+            id="bookBtn"
+            disabled
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+/* css file /* .booking-section { max-width: 1400px; margin: 0 auto; background:
+white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+overflow: hidden; } .section-header { background: linear-gradient(135deg,
+#667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
+.section-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; } .section-header
+p { font-size: 1.1rem; opacity: 0.9; } .booking-container { display: grid;
+grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem; } /* Left Section -
+Services */ .left-section { margin-left: 50px; border-radius: 15px;
+background-color: aqua; border-right: 2px solid #e0e0e0; padding-right: 2rem; /*
+height: 50vh; */ width: 45vw; } .section-title { font-size: 1.8rem; color: #333;
+margin-bottom: 1.5rem; padding-bottom: 0.5rem; text-align: center; }
+.services-list { display: flex; flex-direction: column; gap: 1rem;
+margin-bottom: 1.5rem; } .service-card { margin-left: 20px; height: 25vh; width:
+40vw; background-color: yellow; /* background: #f8f9fa; */ border-radius: 12px;
+padding: 1.5rem; transition: all 0.3s ease; border: 2px solid transparent; }
+.service-card:hover { border-color: #667eea; transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2); } .service-header { display:
+flex; justify-content: space-between; align-items: center; margin-bottom:
+0.5rem; } .service-name { font-size: 1rem; font-weight: bold; color: #333; }
+.service-price { font-size: 1rem; font-weight: bold; color: #667eea; }
+.service-description { color: #666; font-size: 0.70rem; margin-bottom: 1rem; }
+.service-buttons { /* height: 7vh; */ display: flex; gap: 0.5rem; } .add-btn,
+.remove-btn { flex: 1; padding: 0.7rem; border: none; border-radius: 8px;
+cursor: pointer; font-weight: bold; transition: all 0.3s ease; font-size:
+0.70rem; } .add-btn { background: #667eea; color: white; } .add-btn:hover {
+background: #5568d3; transform: scale(1.02); } .add-btn:disabled { background:
+#ccc; cursor: not-allowed; transform: scale(1); } .remove-btn { width: 3vw;
+background: #ff6b6b; color: white; display: none; } .remove-btn:hover {
+background: #ff5252; transform: scale(1.02); } .remove-btn.active { display:
+block; } .cart-info { background: linear-gradient(135deg, #667eea 0%, #764ba2
+100%); color: white; padding: 1rem; border-radius: 10px; text-align: center;
+font-size: 1.1rem; } /* Right Section - Cart & Booking */ .right-section {
+margin-left: 10px; border-radius: 15px; width: 40vw; /* height: 50vh; */
+padding-left: 2rem; background-color: green; } .cart-section { width: 35vw;
+background: #f8f9fa; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+/* min-height: 300px; */ } .cart-items { margin-bottom: 1rem; } .cart-item {
+display: flex; justify-content: space-between; align-items: center; padding:
+1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem; animation:
+slideIn 0.3s ease; } @keyframes slideIn { from { opacity: 0; transform:
+translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.cart-item-info { flex: 1; } .cart-item-name { font-weight: bold; color: #333;
+margin-bottom: 0.25rem; } .cart-item-price { color: #667eea; font-weight: bold;
+} .empty-cart { text-align: center; padding: 3rem 1rem; color: #999; }
+.empty-cart svg { width: 50px; height: 50px; margin-bottom: 1rem; opacity: 0.5;
+} .total-section { border-top: 2px solid #e0e0e0; padding-top: 1rem; margin-top:
+1rem; } .total-row { display: flex; justify-content: space-between; align-items:
+center; font-size: 1.5rem; font-weight: bold; } .total-label { color: #333; }
+.total-amount { color: #667eea; } .booking-form { width: 35vw; background:
+#f8f9fa; border-radius: 12px; padding: 1.5rem; } .form-group { margin-bottom:
+1.2rem; } .form-group label { display: block; margin-bottom: 0.5rem;
+font-weight: bold; color: #333; } .form-group input { width: 100%; padding:
+0.9rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;
+transition: all 0.3s ease; } .form-group input:focus { outline: none;
+border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
+.book-now-btn { width: 100%; padding: 1.2rem; background:
+linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;
+border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer;
+transition: all 0.3s ease; margin-top: 1rem; }
+.book-now-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0
+10px 25px rgba(102, 126, 234, 0.4); } .book-now-btn:disabled { background: #ccc;
+cursor: not-allowed; transform: none; }
+
+<script>
+  // 1. Cart Array
+
+  let cart = [];
+
+  // Creates an empty array to store selected services
+  // Each item will be an object with id, name, and price
+
+  // 2. addToCart() Function
+
+  function addToCart(serviceId) {
+    const serviceItem = $(`.service-item[data-id="${serviceId}"]`);
+
+    // Purpose: Adds a service to the cart
+    // Finds the HTML element with matching data-id attribute using jQuery
+    const service = {
+      id: serviceId,
+      name: serviceItem.data("name"),
+      price: serviceItem.data("price"),
+    };
+
+    // Creates a service object with:
+
+    // id: Service ID (e.g., 1, 2, 3)
+    // name: Service name from data-name attribute
+    // price: Service price from data-price attribute
+
+    if (cart.find((item) => item.id === serviceId)) {
+      return;
+    }
+
+    // Prevents duplicates: Checks if service already exists in cart
+    // If found, exits function early (does nothing)
+
+    cart.push(service);
+    updateCart();
+    updateButtons(serviceId, true);
+  }
+
+  // Adds service to cart array
+  // Updates the cart display
+  // Changes button from "Add" to "Remove"
+
+  // 3. removeFromCart() Function
+
+  function removeFromCart(serviceId) {
+    cart = cart.filter((item) => item.id !== serviceId);
+
+    // Purpose: Removes a service from cart
+    // filter() creates new array without the item matching serviceId
+    updateCart();
+    updateButtons(serviceId, false);
+  }
+
+  // Updates cart display
+  // Changes button back to "Add"
+
+  // 4. updateCart() Function
+
+  function updateCart() {
+    const cartBody = $("#cartItems");
+    cartBody.empty();
+
+    // Purpose: Refreshes the cart table display
+    // Selects the table body element
+    // Removes all existing rows
+
+    if (cart.length === 0) {
+      cartBody.append(
+        '<tr><td colspan="3" class="empty-cart">No items added yet</td></tr>'
+      );
+      $("#totalAmount").text("₹0.00");
+
+      // If cart is empty:
+
+      // Shows "No items added yet" message
+      // Sets total to ₹0.00
+    } else {
+      cart.forEach((item, index) => {
+        const row = `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${item.name}</td>
+                            <td style="text-align: right;">₹${item.price.toFixed(
+                              2
+                            )}</td>
+                        </tr>
+                    `;
+        cartBody.append(row);
+      });
+
+      // If cart has items:
+
+      // Loops through each item
+      // Creates table row with:
+
+      // Serial number (index + 1)
+      // Service name
+      // Price formatted to 2 decimals
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      $("#totalAmount").text(`₹${total.toFixed(2)}`);
+    }
+
+    // Calculates total using reduce():
+
+    // Starts with 0
+    // Adds each item's price
+
+    updateBookButton();
+  }
+
+  // Updates total display
+
+  // 5. updateButtons() Function
+
+  function updateButtons(serviceId, inCart) {
+    const serviceItem = $(`.service-item[data-id="${serviceId}"]`);
+    const addBtn = serviceItem.find(".btn-add");
+    const removeBtn = serviceItem.find(".btn-remove");
+
+    // Purpose: Toggle between "Add" and "Remove" buttons
+    // Finds the service item and both buttons
+
+    if (inCart) {
+      addBtn.hide();
+      removeBtn.show();
+
+      // If item is in cart:
+
+      // Hide "Add Item" button
+      // Show "Remove Item" button
+    } else {
+      removeBtn.hide();
+      addBtn.show();
+    }
+  }
+
+  // If item is NOT in cart:
+
+  // Hide "Remove Item" button
+  // Show "Add Item" button
+
+  // 6. updateBookButton() Function
+
+  function updateBookButton() {
+    const hasItems = cart.length > 0;
+    $("#bookBtn").prop("disabled", !hasItems);
+  }
+
+  // Purpose: Enable/disable "Book now" button
+  // If cart has items → enable button
+  // If cart is empty → disable button
+
+  // 7. Book Now Click Handler
+
+  $("#bookBtn").click(function () {
+    const fullName = $("#fullName").val().trim();
+    const email = $("#email").val().trim();
+    const phone = $("#phone").val().trim();
+
+    // Runs when "Book now" button is clicked
+    // Gets form values and removes whitespace with trim()
+
+    if (!fullName || !email || !phone) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    // Validation: Checks if all fields are filled
+    // Shows alert if any field is empty
+    // Exits function if validation fails
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const services = cart.map((item) => item.name).join(", ");
+
+    // Calculates total amount
+    // Creates comma-separated list of service names
+
+    alert(
+      `✅ Booking Confirmed!\n\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\n\nServices: ${services}\n\nTotal Amount: ₹${total.toFixed(
+        2
+      )}\n\nThank you for choosing our laundry services!`
+    );
+
+    // Clear form and cart
+
+    // Shows confirmation alert with booking details
+
+    $("#fullName, #email, #phone").val("");
+    cart.forEach((item) => updateButtons(item.id, false));
+    cart = [];
+    updateCart();
+  });
+
+  // Cleanup after booking:
+
+  // Clears all form fields
+  // Resets all buttons to "Add" state
+  // Empties cart array
+  // Updates cart display
+</script>
+
+<h1>Overview</h1>

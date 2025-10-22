@@ -1,0 +1,149 @@
+
+/* Responsive Design */
+        @media (max-width: 1024px) {
+            .Navbar {
+                padding: 0 2rem;
+            }
+
+            .nav_link {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 3rem;
+            }
+
+            .text h1 {
+                font-size: 2rem;
+                line-height: 2.6rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .Navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav_link {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                text-align: center;
+            }
+
+            .text {
+                max-width: 100%;
+            }
+
+            .text h1 {
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+            }
+
+            .text p {
+                font-size: 1rem;
+            }
+
+            .banner {
+                max-width: 100%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Navbar {
+                padding: 1rem 0.5rem;
+            }
+
+            .logo img {
+                width: 4rem;
+                height: 4rem;
+            }
+
+            .nav_link {
+                font-size: 0.85rem;
+                gap: 0.8rem;
+            }
+
+            .user_name {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 1.5rem 1rem;
+            }
+
+            .text h1 {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+
+            .text p {
+                font-size: 0.95rem;
+            }
+
+            .text button {
+                padding: 1rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+
+
+                /* Responsive Design */
+        @media (max-width: 1024px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            .left-section {
+                border-right: none;
+                border-bottom: 2px solid #e0e0e0;
+                padding-right: 0;
+                padding-bottom: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .right-section {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .booking-container {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }

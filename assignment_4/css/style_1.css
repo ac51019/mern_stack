@@ -1,12 +1,13 @@
 
 #body
 {
-
+margin: 0;
+padding: 0;
 }
 
 .container{
     width: 100%;
-    background-color: rgb(184, 107, 7);
+    /* background-color: rgb(89, 230, 199); */
 }
 
 /* Navbar section  */
@@ -35,7 +36,7 @@
     display: flex;
     list-style: none;
     align-items: center;
-   font-weight: bold;
+   /* font-weight: bold; */
    font-size: 1.2rem;
 }
 
@@ -45,12 +46,28 @@
     text-decoration: none;
     margin: 0 -21.3vw;
     color: rgb(82, 83, 85);
+    display: inline-block;
 }
 
 .nav_link > li:hover{
        color: #dad291;
 }
 
+
+
+.nav_link >li >a:link,
+.nav_link >li >a :visited{
+    color: rgb(82, 83, 85);
+    text-transform: uppercase;
+    text-decoration: none;  
+    border-bottom: 2px solid transparent;
+}
+
+
+.nav_link >li >a:hover,
+.nav_link >li >a:active{
+    border-bottom: 2px solid rgba(243, 183, 71, 0.767);
+}
 
 .user_name{
     background-color: transparent;
@@ -60,7 +77,7 @@
     transform: translate(11rem, 0);
     width: 10vw;
     height: 9vh;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 1.1rem;
 }
 
@@ -73,25 +90,29 @@
 
 
 /* Hero section  */
+.hero{
+    /* margin-top:40px; */
+    padding-top: 30px;
+    display: flex;
+    background-color: #d1c042;
+}
 
 .text{
 width: 60vw;
 height: 70vh;
-/* background-color: aqua; */
-float: left;
 transform: translate(6rem, 0);
 }
 
 .banner{
 width: 30vw;
 height: 70vh;
-float: left;
 }
 
 .text > h1{
     font-size:bold;
     font-size: 2.3rem;
-    font-family: monospace;
+    line-height: 3rem;
+   font-family: "Georgia", serif;
 }
 
 spam{
@@ -111,8 +132,8 @@ spam{
     border-radius: 0.80rem;
     border: 1.2px solid #6262d4;
     font-size: 20px;
-    font-family: fantasy;
-    background-color: #6c6cd5;
+   font-family: serif;
+    background-color: #74b0d3;
 }
 
 .text> button:hover{
@@ -124,4 +145,43 @@ spam{
 {
     width: 100%;
     height: 100%;
+}
+
+
+/* Service  */
+
+.services{
+    /* margin-top: 30px; */
+    width: 100%;
+    height: 15vh;
+    background-color: #74b0d3;
+}
+
+
+.box{
+    /* background-color: aqua ; */
+    text-align: center;
+    line-height: 3px;
+    /* margin-top: 4px; */
+       transform: translate(50px, 0);
+}
+
+/* booking service section  */
+
+.booking{
+    width: 100%;
+    height: 100vh;
+    background-color: blueviolet;
+    display: flex;
+}
+
+.item{
+    width: 30vw;
+    height: 80vh;
+    background-color: aqua;
+}
+.item_2{
+    width: 30vw;
+    height: 80vh;
+    background-color: rgb(148, 190, 69);
 }

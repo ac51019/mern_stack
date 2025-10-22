@@ -4,61 +4,374 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Assignment</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media_query.css" />
+    <!-- <link rel="stylesheet" href="css/grid.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
-    <!-- navbar section  -->
+    <!-- Navbar Section -->
     <section>
-      <container>
-        <div class="Navbar">
-          <div class="logo"><img src="logo.webp" alt="" /></div>
-          <navbar>
-            <ul class="nav_link">
-              <li>Home</li>
-              <li>Service</li>
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li><button class="user_name">User Name</button></li>
-            </ul>
-          </navbar>
+      <div class="Navbar">
+        <div class="logo">
+          <img src="image/logo.webp" alt="Logo" />
         </div>
-      </container>
+        <nav>
+          <ul class="nav_link">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><button class="user_name">User Name</button></li>
+          </ul>
+        </nav>
+      </div>
     </section>
 
-    <!-- hero section  -->
+    <!-- Hero Section -->
+    <section>
+      <div class="hero">
+        <div class="text">
+          <h1>
+            Revitalize Your<br />
+            Clothes with Expert<br />
+            <span>Laundry Services!</span>
+          </h1>
+          <p>
+            Quality clothing often gets replaced rather than repaired. However,
+            men's clothing repairs are an eco-friendly and cost-effective way to
+            extend the life of your favorite outfits.
+            <br /><br />
+            At FCOM India, we specialize in professional clothing repairs,
+            ensuring your outfits look sharp and feel comfortable. Whether you
+            need minor stitching or major alterations, our expert tailors are
+            here to help.
+          </p>
+          <button>Book a Service Today!</button>
+        </div>
+        <div class="banner">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/026/721/199/original/washing-machine-and-laundry-laundry-sticker-png.png"
+            alt="Laundry Service"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section>
+      <div class="services">
+        <div class="services-grid">
+          <div class="box">
+            <h1>Our Achievements</h1>
+          </div>
+          <div class="box">
+            <h2>15+</h2>
+            <p>Laundry Services</p>
+          </div>
+          <div class="box">
+            <h2>240+</h2>
+            <p>Happy Customers</p>
+          </div>
+          <div class="box">
+            <h2>2+</h2>
+            <p>Years of Experience</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- booking section  -->
 
     <section>
       <div class="container">
-        <div class="hero">
-          <div class="row">
-            <div class="text">
-              <h1>
-                Revitalize Your<br />
-                Clothes with Expert<br /><spam>Laundry Services!</spam>
-              </h1>
+        <div class="booking">
+          <!-- Services Section -->
+          <div class="services-card">
+            <h2>Our Services</h2>
+            <p class="subtitle">
+              Click On The Add To Cart Button To Add The Services To Your Cart
+            </p>
 
-              <p>
-                Quality clothing often gets replaced rather than repaired.
-                However, men’s clothing repairs are an eco-friendly and
-                cost-effective way to extend the life of your favorite outfits.
-                <br /><br />
-                At FCOM India, we specialize in professional clothing repairs,
-                ensuring your outfits look sharp and feel comfortable. Whether
-                you need minor stitching or major alterations, our expert
-                tailors are here to help.
-              </p>
+            <div id="servicesList">
+              <div
+                class="service-item"
+                data-id="1"
+                data-name="Dry Cleaning"
+                data-price="200"
+              >
+                <div class="service-left">
+                  <span class="service-icon">👔</span>
+                  <span class="service-name">Dry Cleaning</span>
+                </div>
+                <div class="service-head">
+                  <span class="service-price">₹200.00</span>
+                  <button class="btn btn-remove" onclick="removeFromCart(1)">
+                    Remove Item
+                  </button>
+                  <button class="btn btn-add" onclick="addToCart(1)">
+                    Add Item
+                  </button>
+                </div>
+              </div>
 
-              <button>Book a Service Today!</button>
+              <div
+                class="service-item"
+                data-id="2"
+                data-name="Wash & Fold"
+                data-price="100"
+              >
+                <div class="service-left">
+                  <span class="service-icon">👕</span>
+                  <span class="service-name">Wash & Fold</span>
+                </div>
+                <div class="service-head">
+                  <span class="service-price">₹100.00</span>
+                  <button class="btn btn-remove" onclick="removeFromCart(2)">
+                    Remove Item
+                  </button>
+                  <button class="btn btn-add" onclick="addToCart(2)">
+                    Add Item
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="service-item"
+                data-id="3"
+                data-name="Ironing"
+                data-price="30"
+              >
+                <div class="service-left">
+                  <span class="service-icon">🏷️</span>
+                  <span class="service-name">Ironing</span>
+                </div>
+                <div class="service-head">
+                  <span class="service-price">₹30.00</span>
+                  <button class="btn btn-remove" onclick="removeFromCart(3)">
+                    Remove Item
+                  </button>
+                  <button class="btn btn-add" onclick="addToCart(3)">
+                    Add Item
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="service-item"
+                data-id="4"
+                data-name="Stain Removal"
+                data-price="500"
+              >
+                <div class="service-left">
+                  <span class="service-icon">✨</span>
+                  <span class="service-name">Stain Removal</span>
+                </div>
+                <div class="service-head">
+                  <span class="service-price">₹500.00</span>
+                  <button class="btn btn-remove" onclick="removeFromCart(4)">
+                    Remove Item
+                  </button>
+                  <button class="btn btn-add" onclick="addToCart(4)">
+                    Add Item
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="service-item"
+                data-id="5"
+                data-name="Leather & Suede Cleaning"
+                data-price="999"
+              >
+                <div class="service-left">
+                  <span class="service-icon">🧥</span>
+                  <span class="service-name">Leather & Suede Cleaning</span>
+                </div>
+                <div class="service-head">
+                  <span class="service-price">₹999.00</span>
+                  <button class="btn btn-remove" onclick="removeFromCart(5)">
+                    Remove Item
+                  </button>
+                  <button class="btn btn-add" onclick="addToCart(5)">
+                    Add Item
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="service-item"
+                data-id="6"
+                data-name="Wedding Dress Cleaning"
+                data-price="2800"
+              >
+                <div class="service-left">
+                  <span class="service-icon">👗</span>
+                  <span class="service-name">Wedding Dress Cleaning</span>
+                </div>
+                <div class="service-head">
+                  <span class="service-price">₹2800.00</span>
+                  <button class="btn btn-remove" onclick="removeFromCart(6)">
+                    Remove Item
+                  </button>
+                  <button class="btn btn-add" onclick="addToCart(6)">
+                    Add Item
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="banner">
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/026/721/199/original/washing-machine-and-laundry-laundry-sticker-png.png"
-                alt=""
-              />
+
+            <div class="info-note">
+              <span>ℹ️</span>
+              <span>Add the items to the cart and book now</span>
+            </div>
+          </div>
+
+          <!-- Cart Section -->
+          <div class="cart-card">
+            <h3>Added Items</h3>
+
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Service Name</th>
+                  <th class="th-price">Price</th>
+                  <!-- <th style="text-align: right">Price</th> -->
+                </tr>
+              </thead>
+              <tbody id="cartItems">
+                <tr>
+                  <td colspan="3" class="empty-cart">No items added yet</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="total-row">
+              <span class="total-label">Total Amount</span>
+              <span class="total-amount" id="totalAmount">₹0.00</span>
+            </div>
+
+            <div class="booking-section">
+              <h4>Book Now</h4>
+              <div class="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Email ID</label>
+                  <input type="email" id="email" placeholder="your@email.com" />
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" />
+                </div>
+              </div>
+              <button class="btn-book" id="bookBtn" disabled>Book now</button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Quality Description Section  -->
+
+    <section>
+      <section>
+        <div class="service">
+          <div class="services-grid">
+            <div class="box">
+              <img src="image/washing-machine.svg" class="icons" alt="" />
+              <br />
+              <h3>Premium Services</h3>
+              <br />
+              <p>
+                Elevate your wardrobe with our meticulous dry cleaning.ensuring
+                garments looks and feel as good as now
+              </p>
+            </div>
+            <div class="box">
+              <img src="image/OIP.png" class="icons" alt="" />
+              <br />
+              <h3>Quick Support</h3>
+              <br />
+              <p>
+                We're committed to providing prompt solutions to ensure your
+                experience is smooth and worry-free
+              </p>
+            </div>
+            <div class="box">
+              <img src="image/OIP__1.png" class="icons" alt="" />
+              <br />
+              <h3>Hassle Fre Delivery</h3>
+              <br />
+              <p>
+                Enjoy seamless service with our convenient pickup and delivery
+                options, tailored to your schedule.
+              </p>
+            </div>
+            <div class="box">
+              <img src="image/price.png" class="icons" alt="" />
+              <br />
+              <h3>Affordable prices</h3>
+              <br />
+              <p>
+                Experience exceptional care without breaking the bank-our
+                affordable prices make laundry day stress-fre3
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- newsletter section  -->
+
+    <section>
+      <div class="section-form">
+        <div class="row">
+          <h2>Subscribe to our newsletter.</h2>
+        </div>
+        <div class="col span-2-of-2">
+          <div class="form-group">
+            <input b 
+              type="text"
+              id="fullName"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+          </div>
+          <button class="btn-book" id="bookBtn" disabled>Subscribe</button>
+        </div>
+      </div>
+    </section>
+    <!-- body close  -->
   </body>
+  <!-- js link  -->
+  <script src="js/script.js"></script>
+
+  <!-- icon link  -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
 </html>
