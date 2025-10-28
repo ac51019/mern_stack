@@ -11,27 +11,30 @@
     <title>Tailwind CSS with CLI</title>
   </head>
   <body>
-    <h1 class="text-amber-400 bg-amber-950 text-4xl">Hello Moto</h1>
-    <button
-      class="bg-blue-200 m-2 p-2 rounded-2xl text-white text-2xl hover:bg-blue-500"
-    >
-      Click Me
-    </button>
+    <div class="container bg-blue-950 mx-auto">
+      <h1 class="text-amber-400 bg-amber-950 text-4xl">Hello Moto</h1>
+      <button
+        class="bg-blue-200 m-2 p-2 rounded-2xl text-white text-2xl hover:bg-blue-500"
+      >
+        Click Me
+      </button>
 
-    <ul class="bg-gray-600 text-2xl text-white flex">
-      <li class="flex"><a class="p-3 hover:bg-zinc-900" href="#">Home</a></li>
-      <li class="flex"><a class="p-3 hover:bg-zinc-900" href="#">About </a></li>
-      <li class="flex">
-        <a class="p-3 hover:bg-zinc-900" href="#">Products</a>
-      </li>
-      <li class="flex">
-        <a class="p-3 hover:bg-zinc-900" href="#">Contact</a>
-      </li>
-    </ul>
+      <ul class="bg-gray-600 text-2xl text-white flex">
+        <li class="flex"><a class="p-3 hover:bg-zinc-900" href="#">Home</a></li>
+        <li class="flex">
+          <a class="p-3 hover:bg-zinc-900" href="#">About </a>
+        </li>
+        <li class="flex">
+          <a class="p-3 hover:bg-zinc-900" href="#">Products</a>
+        </li>
+        <li class="flex">
+          <a class="p-3 hover:bg-zinc-900" href="#">Contact</a>
+        </li>
+      </ul>
 
-    <!-- margin padding part  -->
+      <!-- margin padding part  -->
 
-    <!-- 
+      <!-- 
     Margin x(mx) - Left and Right
     Margin y (my- Top and Bottom 
 
@@ -51,65 +54,252 @@
     Padding right (pr)
     -->
 
-    <p class="bg-amber-200 text-blue-700 p-8 m-4">
-      Hello This is Tailwind Margin Part
-    </p>
+      <p class="bg-amber-200 text-blue-700 p-8 m-4">
+        Hello This is Tailwind Margin Part
+      </p>
 
-    <h1 class="bg-violet-700 text-amber-200 p-[50px] m-[30px]">
-      Margin Check px
-    </h1>
-    <p class="bg-gray-400 text-white m-7">
-      Hello this is Tailwind Padding Part
-    </p>
-    <br />
+      <h1 class="bg-violet-700 text-amber-200 p-[50px] m-[30px]">
+        Margin Check px
+      </h1>
+      <p class="bg-gray-400 text-white m-7">
+        Hello this is Tailwind Padding Part
+      </p>
+      <br />
 
-    <!-- Width part  -->
-    <h1 class="bg-gray-500 text-amber-500 w-50 p-4">Lorem ipsum dolor sit</h1>
-    <br />
-    <p class="bg-pink-300 text-amber-900 w-[20%]">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-      facilis dolore
-    </p>
-    <br />
-    <h2 class="bg-amber-400 min-w-40 w-[50%]">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus rerum quas
-      nulla nemo iure eius optio perspiciatis, et consequuntur aliquid
-      laudantium alias fuga dolorem repellat hic quaerat. Et, minima qui?
-    </h2>
-    <br />
-    <p class="max-w-50 bg-amber-900 text-amber-50 pt-20">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sit cum
-      atque dolor corrupti voluptas at dolorem odit distinctio? Quos veritatis,
-      modi quibusdam incidunt at velit odio nihil laboriosam eaque!
-    </p>
-    <br />
-    <p class="w-full bg-amber-300 text-amber-50 pt-5">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sit cum
-      atque dolor corrupti voluptas at dolorem odit distinctio? Quos veritatis,
-      modi quibusdam incidunt at velit odio nihil laboriosam eaque!
-    </p>
+      <!-- Width part  -->
+      <h1 class="bg-gray-500 text-amber-500 w-50 p-4">Lorem ipsum dolor sit</h1>
+      <br />
+      <p class="bg-pink-300 text-amber-900 w-[20%]">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+        facilis dolore
+      </p>
+      <br />
+      <h2 class="bg-amber-400 min-w-40 w-[50%]">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus rerum
+        quas nulla nemo iure eius optio perspiciatis, et consequuntur aliquid
+        laudantium alias fuga dolorem repellat hic quaerat. Et, minima qui?
+      </h2>
+      <br />
+      <p class="max-w-50 bg-amber-900 text-amber-50 pt-20">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sit cum
+        atque dolor corrupti voluptas at dolorem odit distinctio? Quos
+        veritatis, modi quibusdam incidunt at velit odio nihil laboriosam eaque!
+      </p>
+      <br />
+      <p class="w-full bg-amber-300 text-amber-50 pt-5">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sit cum
+        atque dolor corrupti voluptas at dolorem odit distinctio? Quos
+        veritatis, modi quibusdam incidunt at velit odio nihil laboriosam eaque!
+      </p>
 
-    <br />
-    <!-- height part  -->
+      <br />
+      <!-- height part  -->
 
-    <h1 class="bg-red-400 text-green-800 w-full h-full">
-      Lorem ipsum dolor sit amet
-    </h1>
-    <br />
-    <h2 class="bg-red-500 text-green-700 w-80 h-30">
-      Lorem ipsum dolor sit amet
-    </h2>
-    <br />
-    <h3 class="bg-red-600 text-green-600 w-[150px] h-1/2">
-      Lorem ipsum dolor sit amet h-1/2
-    </h3>
-    <br />
-    <h4 class="bg-red-700 text-green-500 w-[70%] max-h-40 h-60">
-      Lorem ipsum dolor sit amet max-h-40
-    </h4>
-    <br />
-    <h5 class="bg-red-800 text-green-400 w-50 h-[80px]">
-      Lorem ipsum dolor sit amet
-    </h5>
+      <h1 class="bg-red-400 text-green-800 w-full h-full">
+        Lorem ipsum dolor sit amet
+      </h1>
+      <br />
+      <h2 class="bg-red-500 text-green-700 w-80 h-30">
+        Lorem ipsum dolor sit amet
+      </h2>
+      <br />
+      <h3 class="bg-red-600 text-green-600 w-[150px] h-1/2">
+        Lorem ipsum dolor sit amet h-1/2
+      </h3>
+      <br />
+      <h4 class="bg-red-700 text-green-500 w-[70%] max-h-40 h-60">
+        Lorem ipsum dolor sit amet max-h-40
+      </h4>
+      <br />
+      <h5 class="bg-red-800 text-green-400 w-50 h-[80px]">
+        Lorem ipsum dolor sit amet
+      </h5>
+
+      <br /><br /><br />
+
+      <!-- size section  -->
+
+      <div class="w-50 h-50 bg-blue-300 border-2 size-50"></div>
+      <br />
+      <div class="bg-blue-400 border-2 size-50 min-size-20">
+        This is size magic
+      </div>
+      <br />
+      <div class="bg-blue-500 border-2 size-50 max-size-80 min-size-30"></div>
+      <br />
+
+      <div class="bg-blue-600 size-fit">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, totam.
+      </div>
+      <br /><br />
+
+      <div class="bg-yellow-400 size-1/5">lorem ip</div>
+      <br /><br />
+      <div class="size-full bg-amber-400 hover:size-1/2">Hello Lorem</div>
+      <br /><br />
+
+      <!-- positions  -->
+
+      <div class="bg-purple-200 size-40 absolute top-0 left-0">
+        positions top to left
+      </div>
+      <br />
+      <div class="bg-purple-300 size-40 absolute top-0 right-10">
+        positions top to right
+      </div>
+      <br />
+      <div class="bg-purple-400 size-40 absolute left-30 bottom-50">
+        positions left to right
+      </div>
+      <br />
+      <div class="bg-purple-500 size-40 absolute bottom-30 right-70">
+        positions bottom to right
+      </div>
+
+      <br /><br /><br />
+      <div class="relative size-150 bg-amber-400">
+        <div class="bg-red-200 size-40 top-0 left-0">positions top to left</div>
+        <br />
+        <div class="bg-red-300 size-40 top-0 right-10">
+          positions top to right
+        </div>
+        <br />
+        <div class="bg-red-400 size-40 left-30 bottom-50">
+          positions left to right
+        </div>
+        <br />
+        <div class="bg-red-500 size-40 bottom-30 right-70">
+          positions bottom to right
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br /><br /><br />
+
+      <div class="bg-amber-800 size-140">
+        <!-- <div class="bg-amber-300 absolute size-30 insert-15"></div>
+      <div class="bg-red-400 relative size-30 insert-10"></div> -->
+        <div class="bg-black size-30 text-white fixed top-20 right-0 left-0">
+          fixed Posistions
+        </div>
+      </div>
+
+      <br /><br /><br />
+      <!-- background classes  -->
+      <div
+        class="background bg-[url(https://cdn.pixabay.com/photo/2020/06/02/06/34/home-studios-5249651_1280.jpg)] bg-no-repeat bg-center bg-cover w-full h-100 bg-amber-400"
+      ></div>
+      <br />
+      <img
+        class="brightness-125"
+        src="https://cdn.pixabay.com/photo/2020/06/02/06/34/home-studios-5249651_1280.jpg"
+        alt=""
+      />
+      <br />
+      <img
+        class="hue-rotate-60"
+        src="https://cdn.pixabay.com/photo/2020/06/02/06/34/home-studios-5249651_1280.jpg"
+        alt=""
+      />
+      <br /><br />
+      <h1 class="blur-sm bg-amber-300">
+        Lorem ipsum dolor sit amet consectetur
+      </h1>
+      <br />
+      <br />
+      <br />
+
+      <div class="interactivity">
+        <button class="bg-pink-500 p-3 m-3 rotate-3 rounded-md text-white">
+          Click me
+        </button>
+      </div>
+
+      <br /><br />
+      <br />
+
+      <div class="media_query">
+        just media query sm, md, lg, xl,xxl (complet any free time)
+      </div>
+
+      <br /><br /><br />
+
+      <div class="column">total 12 column i hope u know how to use</div>
+
+      <br />
+      <br />
+      <br />
+
+      <div class="flex">
+        <h1>do u know waht is flex- row and flex-column</h1>
+
+        <div
+          class="flex-column flex justify-center size-full flex-wrap sm:flex-row"
+        >
+          <div class="A bg-amber-200 size-25">1</div>
+          <div class="A bg-amber-400 size-25">2</div>
+          <div class="A bg-amber-600 size-25">3</div>
+          <div class="A bg-amber-800 size-25">4</div>
+          <div class="A bg-amber-950 size-25">5</div>
+        </div>
+        <!-- 
+        <div class="flex-row flex">
+          <div class="A bg-amber-200 size-25">1</div>
+          <div class="A bg-amber-400 size-25">2</div>
+          <div class="A bg-amber-600 size-25">3</div>
+          <div class="A bg-amber-800 size-25">4</div>
+          <div class="A bg-amber-950 size-25">5</div>
+        </div> -->
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div
+        class="grid grid-cols-4 gap-1 bg-white pt-3 sm:grid-cols-2 md:grid-cols-4"
+      >
+        <div class="p-12 bg-green-400 border-green-950 border">1</div>
+        <div class="p-12 bg-green-400 border-green-950 border col-span-3">
+          2
+        </div>
+        <div class="p-12 bg-green-400 border-green-950 border">3</div>
+        <div class="p-12 bg-green-400 border-green-950 border">4</div>
+        <div class="p-12 bg-green-400 border-green-950 border">5</div>
+        <div class="p-12 bg-green-400 border-green-950 border">6</div>
+        <div class="p-12 bg-green-400 border-green-950 border">7</div>
+        <div class="p-12 bg-green-400 border-green-950 border">8</div>
+        <div class="p-12 bg-green-400 border-green-950 border">9</div>
+        <div class="p-12 bg-green-400 border-green-950 border">10</div>
+        <div class="p-12 bg-green-400 border-green-950 border">11</div>
+        <div class="p-12 bg-green-400 border-green-950 border">12</div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div class="animation bg-white">
+        <div
+          class="size-25 bg-red-600 p-4 m-10 animate-bounce rounded-full"
+        ></div>
+        <hr />
+
+        <div class="size-25 bg-yellow-600 p-4 m-10 animate-spin"></div>
+        <hr />
+        <div
+          class="size-25 bg-green-600 pl-4 mt-10 animate-spin h-1 w-25"
+        ></div>
+
+        <br />
+        <img
+          class="m-30 rounded-sm animate-ping rotate-2"
+          src="https://cdn.pixabay.com/photo/2020/06/02/06/34/home-studios-5249651_1280.jpg"
+          alt=""
+        />
+      </div>
+    </div>
   </body>
 </html>
