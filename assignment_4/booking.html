@@ -376,23 +376,10 @@ height: 50vh; */
 </style>
 
 <script>
-  //  1. Creating an Empty Cart
   let cart = [];
 
-  // 2. Adding Items to Cart Function
-  // This function runs when someone clicks "Add" button. serviceId tells us which service they want.
-  // Find the service box on the webpage that matches this ID.
-  //   Create a package with 3 things:
-
-  // The service ID number
-  // The service name (like "Wash & Iron")
-  // The service price (like 150)
-  // Check if this service is already in the cart. If yes, stop here (don't add it again)
-  // Put this service into the cart.
-  // Refresh the cart display to show the new item.
-
   function addToCart(serviceId) {
-    const serviceItem = $(`.service-item[data-id="${serviceId}"]`);
+    const serviceItem = $(`.service-item[data-id="${serviceId}"]`); // use jquery
     const service = {
       id: serviceId,
       name: serviceItem.data("name"),
@@ -408,32 +395,11 @@ height: 50vh; */
     updateButtons(serviceId, true);
   }
 
-  // 3. Removing Items from Cart Function
-  //  This function runs when someone clicks "Remove" button.
-  // Keep all services EXCEPT the one being removed. Make a new cart without that item.
-  // Refresh the cart display.
-  // Change the "Remove" button back to "Add" button.
-
   function removeFromCart(serviceId) {
     cart = cart.filter((item) => item.id !== serviceId);
     updateCart();
     updateButtons(serviceId, false);
   }
-
-  // 4. Updating the Cart Display Function
-  // This function refreshes what you see in the cart.
-  //  Find the cart table on the webpage.
-  // Clear everything from the cart display (start fresh).
-  // Check if the cart is empty (no items).
-  //  If cart is empty, show message "No items added yet".
-  // Go through each item in the cart one by one. index is the position number (0, 1, 2...).
-  //   Create a table row showing:
-
-  // Row number (index + 1 makes it 1, 2, 3... instead of 0, 1, 2...)
-  // Service name
-  // Price with ₹ symbol (toFixed(2) means show 2 decimal places like 150.00)
-  // Add up all the prices. Start from 0, then add each item's price.( const total = cart.reduce)
-  // Check if the "Book Now" button should be enabled or disabled
 
   function updateCart() {
     const cartBody = $("#cartItems");
@@ -465,11 +431,6 @@ height: 50vh; */
     updateBookButton();
   }
 
-  // 5. Updating Add/Remove Buttons Function
-  // This function changes buttons. inCart is true if item is in cart, false if not.
-  //  Find the "Add" button and "Remove" button for this service.
-  // If item is in cart: Hide "Add" button, Show "Remove" button.
-
   function updateButtons(serviceId, inCart) {
     const serviceItem = $(`.service-item[data-id="${serviceId}"]`);
     const addBtn = serviceItem.find(".btn-add");
@@ -484,26 +445,10 @@ height: 50vh; */
     }
   }
 
-  // 6. Updating Book Button Function
-  // This function checks if "Book Now" button should work.
-  // Check if cart has any items (true if yes, false if no).
-  //  If cart is empty, disable "Book Now" button. If cart has items, enable it.
-
   function updateBookButton() {
     const hasItems = cart.length > 0;
     $("#bookBtn").prop("disabled", !hasItems);
   }
-
-  // 7. Book Now Button Click Handler
-  //  Get the customer's name, email, and phone from the form. .trim() removes extra spaces.
-  // If any field is empty, show an alert message and stop here.
-  // Calculate the total price of all services.
-  // Make a list of service names separated by commas (like "Wash & Iron, Dry Cleaning").
-  // Create email subject line. encodeURIComponent makes it safe for email links.
-  //  Add customer name, email, and phone to the email message.
-  // For each service in cart, add a numbered line like "1. Wash & Iron - ₹150.00".
-  // Clear the name, email, and phone input fields.
-  // For each item in cart, change "Remove" button back to "Add" button.
 
   $("#bookBtn").click(function () {
     const fullName = $("#fullName").val().trim();
@@ -515,48 +460,6 @@ height: 50vh; */
       return;
     }
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const services = cart.map((item) => item.name).join(", ");
-
-    // Prepare email
-    const recipientEmail = "your-business@example.com"; // Change this to your email
-    const subject = encodeURIComponent("Laundry Service Booking - " + fullName);
-
-    // Build email body with proper line breaks
-    let emailBody = "NEW BOOKING REQUEST" + "%0D%0A";
-    emailBody += "==================" + "%0D%0A%0D%0A";
-    emailBody += "Customer Details:" + "%0D%0A";
-    emailBody += "Name: " + encodeURIComponent(fullName) + "%0D%0A";
-    emailBody += "Email: " + encodeURIComponent(email) + "%0D%0A";
-    emailBody += "Phone: " + encodeURIComponent(phone) + "%0D%0A%0D%0A";
-    emailBody += "Services Requested:" + "%0D%0A";
-    emailBody += "-------------------" + "%0D%0A";
-
-    cart.forEach((item, index) => {
-      emailBody +=
-        index +
-        1 +
-        ". " +
-        encodeURIComponent(item.name) +
-        " - ₹" +
-        item.price.toFixed(2) +
-        "%0D%0A";
-    });
-
-    emailBody += "%0D%0A";
-    emailBody += "TOTAL AMOUNT: ₹" + total.toFixed(2) + "%0D%0A";
-
-    // Open email client with mailto
-    window.location.href =
-      "mailto:" + recipientEmail + "?subject=" + subject + "&body=" + emailBody;
-
-    // Show confirmation alert
-    alert(
-      `✅ Booking Confirmed!\n\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\n\nServices: ${services}\n\nTotal Amount: ₹${total.toFixed(
-        2
-      )}\n\nYour email client will open to send the booking details.\nThank you for choosing our laundry services!`
-    );
-
     // Clear form and cart
     $("#fullName, #email, #phone").val("");
     cart.forEach((item) => updateButtons(item.id, false));
@@ -564,66 +467,27 @@ height: 50vh; */
     updateCart();
   });
 
-  // short explain all code
+  // send email
 
-  // let cart = [];
-  // ```
-  // - Stores selected services as an array of objects
+  function sendMail() {
+    var parms = {
+      fullname: document.getElementById("fullname").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+    };
 
-  // ### **2. Adding Services (`addToCart`)**
-  // - Retrieves service details from the HTML element using jQuery
-  // - Creates a service object with `id`, `name`, and `price`
-  // - Checks if service already exists in cart (prevents duplicates)
-  // - Adds service to cart and updates the UI
+    emailjs
+      .send("service_d3icadb", "template_9mxto42", parms)
+      .then((res) => {
+        // document.getElementById("fullname").value="";
+        // document.getElementById("email").value="";
+        // document.getElementById("phone").value="";
+        // document.getElementById("name").value="";
+        // document.getElementById("price").value="";
+        // console.log(res);
+        alert("Email Send !!");
+      })
 
-  // ### **3. Removing Services (`removeFromCart`)**
-  // - Filters out the service with matching ID
-  // - Updates cart display and button states
-
-  // ### **4. Cart Display (`updateCart`)**
-  // - Clears and rebuilds the cart table
-  // - Shows "No items added yet" if empty
-  // - Otherwise, displays each service with:
-  //   - Row number
-  //   - Service name
-  //   - Price (formatted with ₹ symbol)
-  // - Calculates and displays total amount
-  // - Enables/disables the book button based on cart contents
-
-  // ### **5. Button State Management (`updateButtons`)**
-  // - Toggles between "Add" and "Remove" buttons
-  // - Shows "Remove" when service is in cart
-  // - Shows "Add" when service is not in cart
-
-  // ### **6. Booking Submission (`#bookBtn` click handler)**
-
-  // **Validation:**
-  // - Checks if all form fields (name, email, phone) are filled
-  // - Prevents submission if cart is empty
-
-  // **Email Generation:**
-  // - Creates a formatted email using `mailto:` protocol
-  // - URL-encodes all data to handle special characters
-  // - Uses `%0D%0A` for line breaks in email body
-  // - Includes:
-  //   - Customer details
-  //   - List of services with prices
-  //   - Total amount
-
-  // **Email Structure:**
-  // ```
-  // NEW BOOKING REQUEST
-  // ==================
-
-  // Customer Details:
-  // Name: [Customer Name]
-  // Email: [Customer Email]
-  // Phone: [Customer Phone]
-
-  // Services Requested:
-  // -------------------
-  // 1. [Service Name] - ₹[Price]
-  // 2. [Service Name] - ₹[Price]
-
-  // TOTAL AMOUNT: ₹[Total]
+      .catch((err) => console.log(err));
+  }
 </script>

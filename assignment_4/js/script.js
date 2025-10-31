@@ -1,11 +1,7 @@
-
-
-
-
 let cart = [];
 
 function addToCart(serviceId) {
-    const serviceItem = $(`.service-item[data-id="${serviceId}"]`); // use jquery
+    const serviceItem = $(`.service-item[data-id="${serviceId}"]`);
     const service = {
         id: serviceId,
         name: serviceItem.data('name'),
@@ -49,8 +45,6 @@ function updateCart() {
         const total = cart.reduce((sum, item) => sum + item.price, 0);
         $('#totalAmount').text(`₹${total.toFixed(2)}`);
     }
-
-    updateBookButton();
 }
 
 function updateButtons(serviceId, inCart) {
@@ -67,10 +61,7 @@ function updateButtons(serviceId, inCart) {
     }
 }
 
-function updateBookButton() {
-    const hasItems = cart.length > 0;
-    $('#bookBtn').prop('disabled', !hasItems);
-}
+
 
 $('#bookBtn').click(function() {
     const fullName = $('#fullName').val().trim();
@@ -81,36 +72,9 @@ $('#bookBtn').click(function() {
         alert('Please fill in all fields');
         return;
     }
-
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const services = cart.map(item => item.name).join(', ');
-
-    // Prepare email
-    const recipientEmail = 'your-business@example.com'; // Change this to your email
-    const subject = encodeURIComponent('Laundry Service Booking - ' + fullName);
     
-    // Build email body with proper line breaks
-    let emailBody = 'NEW BOOKING REQUEST' + '%0D%0A';
-    emailBody += '==================' + '%0D%0A%0D%0A';
-    emailBody += 'Customer Details:' + '%0D%0A';
-    emailBody += 'Name: ' + encodeURIComponent(fullName) + '%0D%0A';
-    emailBody += 'Email: ' + encodeURIComponent(email) + '%0D%0A';
-    emailBody += 'Phone: ' + encodeURIComponent(phone) + '%0D%0A%0D%0A';
-    emailBody += 'Services Requested:' + '%0D%0A';
-    emailBody += '-------------------' + '%0D%0A';
-    
-    cart.forEach((item, index) => {
-        emailBody += (index + 1) + '. ' + encodeURIComponent(item.name) + ' - ₹' + item.price.toFixed(2) + '%0D%0A';
-    });
-    
-    emailBody += '%0D%0A';
-    emailBody += 'TOTAL AMOUNT: ₹' + total.toFixed(2) + '%0D%0A';
-
-    // Open email client with mailto
-    window.location.href = 'mailto:' + recipientEmail + '?subject=' + subject + '&body=' + emailBody;
-
-    // Show confirmation alert
-    alert(`✅ Booking Confirmed!\n\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\n\nServices: ${services}\n\nTotal Amount: ₹${total.toFixed(2)}\n\nYour email client will open to send the booking details.\nThank you for choosing our laundry services!`);
+    // Send email before clearing
+    sendMail(fullName, email, phone);
 
     // Clear form and cart
     $('#fullName, #email, #phone').val('');
@@ -119,3 +83,36 @@ $('#bookBtn').click(function() {
     updateCart();
 });
 
+
+emailjs.init('7MQF5X8dm-ga0CyVq');
+// Send email function
+function sendMail(fullname, email, phone) { 
+    // Create cart items string
+    const cartItems = cart.map((item, index) => 
+        `${index + 1}. ${item.name} - ₹${item.price.toFixed(2)}`
+    ).join('\n');
+    
+    // Create arrays for individual product names and prices
+    const productNames = cart.map(item => item.name).join(', ');
+    const productPrices = cart.map(item => `₹${item.price.toFixed(2)}`).join(', ');
+    
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    
+    const params = {
+        fullname: fullname,
+        email: email, 
+        phone: phone,
+        cart_items: cartItems,
+        total_amount: `₹${total.toFixed(2)}`
+    };
+
+    emailjs.send("service_8sf8hf9", "template_mnyn75n", params)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert("Email sent successfully!");
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            alert("Email sending failed. Please try again.");
+        });
+}
