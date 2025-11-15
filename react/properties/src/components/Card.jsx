@@ -33,7 +33,7 @@ function Card({username="uUsername Placeholder", age="Placeholder for Age"}) {
     </div>
   </div>
 </div>
-<hr />
+
   </>
   )
 }
